@@ -48,18 +48,6 @@ resource "google_compute_firewall" "http" {
   source_ranges = ["0.0.0.0/0"]
 }
 
-resource "google_compute_firewall" "egress" {
-  name      = "egress"
-  network   = google_compute_network.network.self_link
-  direction = "EGRESS"
-  priority  = "1000"
-  allow {
-    protocol = "tcp"
-    ports    = ["80"]
-  }
-  source_ranges = ["0.0.0.0/0"]
-}
-
 resource "google_compute_firewall" "https" {
   name      = "https"
   network   = google_compute_network.network.self_link
