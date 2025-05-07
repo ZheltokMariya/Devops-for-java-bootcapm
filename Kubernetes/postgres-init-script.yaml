@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgres-init-script
+data:
+  init.sql: |
+    CREATE TABLE config (
+        id SERIAL PRIMARY KEY,
+        param VARCHAR(50) NOT NULL
+    );
+    INSERT INTO config(param) VALUES ('param1'), ('param2'), ('param3'), ('param4'), ('param5');
